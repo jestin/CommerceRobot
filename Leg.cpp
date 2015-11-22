@@ -3,12 +3,30 @@
 Leg::Leg(){
   m_curX = 0;
   m_curY = 0;
+  m_xAngles = NULL;
+  m_yAngles = NULL;
 }
 
 Leg::~Leg(){
+  if(m_xAngles != NULL){
+    delete m_xAngles;
+  }
+  
+  if(m_yAngles != NULL){
+    delete m_yAngles;
+  }
 }
 
 void Leg::setAngles(int _xAngles[], int _xSize, int _yAngles[], int _ySize){
+  
+  if(m_xAngles != NULL){
+    delete m_xAngles;
+  }
+  
+  if(m_yAngles != NULL){
+    delete m_yAngles;
+  }
+  
   m_xAngles = new int[_xSize];
   for(int i = 0; i < _xSize; i++){
     m_xAngles[i] = _xAngles[i];
