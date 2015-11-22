@@ -39,6 +39,9 @@ void loop(){
   for(int x = 0; x < 5; x ++){
     for(int y = 0; y < 3; y++){
       leg1.setPosition(x, y);
+      leg2.setPosition(x, y);
+      leg3.setPosition(x, y);
+      leg4.setPosition(x, y);
       delay(500);
     }
   }
