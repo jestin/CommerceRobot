@@ -44,8 +44,16 @@ void Leg::attach(int _xPin, int _yPin){
 }
 
 void Leg::setPosition(int _x, int _y){
-  m_xServo.write(getXAngle(_x));
-  m_yServo.write(getYAngle(_y));
+  int xAngle = getXAngle(_x);
+  int yAngle = getXAngle(_y);
+  
+  Serial.print("xAngle: ");
+  Serial.println(xAngle);
+  Serial.print("yAngle: ");
+  Serial.println(yAngle);
+  
+  m_xServo.write(xAngle);
+  m_yServo.write(yAngle);
   m_curX = _x;
   m_curY = _y;
 }

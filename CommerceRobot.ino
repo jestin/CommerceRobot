@@ -5,6 +5,8 @@
 
 #include "Leg.h"
 #include "Angles.h"
+#include "Cycle.h"
+#include "Cycles.h"
 #include <Servo.h>
 
 Leg leg1;
@@ -12,7 +14,13 @@ Leg leg2;
 Leg leg3;
 Leg leg4;
 
+Cycle walkCycle;
+
+int pos = 0;
+
 void setup(){
+  Serial.begin(9600);
+  
   int leg1XAngles[5] = LEG1_X_ANGLES;
   int leg1YAngles[3] = LEG1_Y_ANGLES;
   leg1.setAngles(leg1XAngles, 5, leg1YAngles, 3);
@@ -33,16 +41,30 @@ void setup(){
   leg2.attach(6, 7);
   leg3.attach(8, 9);
   leg4.attach(10, 11);
+  
+  Leg legs[4] = {leg1, leg2, leg3, leg4};
+  walkCycle.setLegs(legs, 4);
+  
+  //Serial.println("Setting positions:");
+  int positions[2/*number of positions*/ * 2/*number of servos per leg*/ * 4/*number of legs*/] = UP_DOWN_CYCLE;
+  walkCycle.setPositions(positions, 2);
 }
 
 void loop(){
-  for(int x = 0; x < 5; x ++){
-    for(int y = 0; y < 3; y++){
-      leg1.setPosition(x, y);
-      leg2.setPosition(x, y);
-      leg3.setPosition(x, y);
-      leg4.setPosition(x, y);
-      delay(500);
-    }
+  walkCycle.next();
+  delay(1000);
+  
+  /*if(pos % 2 == 0){
+    leg1->setPosition(2, 2);
+    leg2->setPosition(2, 2);
+    leg3->setPosition(2, 2);
+    leg4->setPosition(2, 2);
+  } else {
+    leg1->setPosition(2, 0);
+    leg2->setPosition(2, 0);
+    leg3->setPosition(2, 0);
+    leg4->setPosition(2, 0);
   }
+  delay(500);
+  pos++;*/
 }
