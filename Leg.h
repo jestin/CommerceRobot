@@ -1,3 +1,6 @@
+// This class abstracts a leg of the robot, such that we
+// can set its position by giving it an X,Y value.
+
 #ifndef LEG_H
 #define LEG_H
 
@@ -24,8 +27,13 @@ class Leg {
     Leg();
     ~Leg();
 
+    // Defines the angles for each position
     void setAngles(int _xAngles[], int _xSize, int _yAngles[], int _ySize);
+    
+    // attaches the leg to specific pins on the arduino
     void attach(int _xPin, int _yPin);
+    
+    // sets the angles of the robot, by giving it a predefined X,Y position
     void setPosition(int _x, int _y);
 };
 #endif

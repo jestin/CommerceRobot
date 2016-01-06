@@ -1,3 +1,8 @@
+// This file defines the angles for a particular robot.  The main
+// point is to define specific angles to position numbers for each
+// servo on each leg.  For now, we have divided up each leg into
+// 5 X-positions and 3 Y-positions.
+
 #ifndef ANGLES_H
 #define ANGLES_H
 
