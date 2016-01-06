@@ -46,8 +46,8 @@ void setup(){
   walkCycle.setLegs(legs, 4);
   
   //Serial.println("Setting positions:");
-  int positions[2/*number of positions*/ * 2/*number of servos per leg*/ * 4/*number of legs*/] = UP_DOWN_CYCLE;
-  walkCycle.setPositions(positions, 2);
+  int positions[WALK_POSITIONS * 2/*number of servos per leg*/ * 4/*number of legs*/] = WALK_CYCLE;
+  walkCycle.setPositions(positions, WALK_POSITIONS);
 }
 
 void loop(){
@@ -55,16 +55,16 @@ void loop(){
   delay(1000);
   
   /*if(pos % 2 == 0){
-    leg1->setPosition(2, 2);
-    leg2->setPosition(2, 2);
-    leg3->setPosition(2, 2);
-    leg4->setPosition(2, 2);
+    leg1.setPosition(2, 2);
+    leg2.setPosition(2, 2);
+    leg3.setPosition(2, 2);
+    leg4.setPosition(2, 2);
   } else {
-    leg1->setPosition(2, 0);
-    leg2->setPosition(2, 0);
-    leg3->setPosition(2, 0);
-    leg4->setPosition(2, 0);
+    leg1.setPosition(2, 0);
+    leg2.setPosition(2, 0);
+    leg3.setPosition(2, 0);
+    leg4.setPosition(2, 0);
   }
-  delay(500);
+  delay(1000);
   pos++;*/
 }

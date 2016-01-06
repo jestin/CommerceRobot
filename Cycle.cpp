@@ -70,20 +70,20 @@ void Cycle::next() {
   Serial.print("Current Position: ");
   Serial.println(m_nCurPos);
   for(int leg = 0; leg < m_nLegCount; leg++) {
-    Serial.print("Leg");
-    Serial.println(leg);
-    Serial.print("x-servo: ");
-    Serial.println(leg * 2);
-    Serial.print("y-servo: ");
-    Serial.println((leg * 2) + 1);
+    //Serial.print("Leg");
+    //Serial.println(leg);
+    //Serial.print("x-servo: ");
+    //Serial.println(leg * 2);
+    //Serial.print("y-servo: ");
+    //Serial.println((leg * 2) + 1);
     int x = m_Positions[m_nCurPos * (m_nLegCount * 2) + (leg * 2)];
     int y = m_Positions[m_nCurPos * (m_nLegCount * 2) + (leg * 2) + 1];
-    Serial.print("(");
-    Serial.print(x);
-    Serial.print(", ");
-    Serial.print(y);
-    Serial.println(")");
-    Serial.flush();
+    //Serial.print("(");
+    //Serial.print(x);
+    //Serial.print(", ");
+    //Serial.print(y);
+    //Serial.println(")");
+    //Serial.flush();
     m_Legs[leg].setPosition(x, y);
   }
   
